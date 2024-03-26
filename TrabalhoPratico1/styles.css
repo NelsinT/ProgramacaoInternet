@@ -1,23 +1,48 @@
-h1 {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.linha_border {
+    border-bottom: 3px solid gray;
+}
+header {
     text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Changed to space-between */
+    align-items: center;
 }
 
+.logo {
+    display: block;
+    margin-left: 10px;
+}
 
-.butao{
+.logo-image {
+    height: 50; /* Adjust height if necessary */
+    width: auto;
+}
+
+.titulo {
+    text-align: center;
+    margin: 0; /* Remove default margin */
+}
+
+.butao {
     background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 160px;
-    height: 100px;
+    width: 180px;
+    height: 80px;
     margin-left: 2px;
     margin-right: 2px;
-    transition: background-color 1s, width 1s;
+    transition: background-color 5s, width 1s;
     cursor: pointer;
+    border: 2px solid gray;
 }
-.butao:hover{
+
+.butao:hover {
     background-color: rgba(94, 93, 93, 0.644);
-    width: 135px;
+    width: 160px;
 }
-
-
