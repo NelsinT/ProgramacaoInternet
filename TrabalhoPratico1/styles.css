@@ -1,3 +1,128 @@
-h1{
+h1 {
     text-align: center;
 }
+
+
+.barra_opcao {
+    display: flex;
+
+}
+
+.home {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.home:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+
+.federacao {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 6px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.federacao:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+
+.associacao {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.associacao:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+
+.kyoosuku {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.kyoosuku:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+
+
+.multimedia {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.multimedia:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+.noticias {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.noticias:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+.arquivo{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: autopx;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 2s, width 1s;
+    cursor: pointer;
+}
+.arquivo:hover{
+    background-color: rgba(94, 93, 93, 0.644);
+    width: 50px;
+}
+
