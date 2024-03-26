@@ -8,15 +8,23 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    width: 100%; 
+    background: linear-gradient( rgb(218, 0, 0), rgb(243, 87, 87));
+}
+
+
+.logo {
+    margin-right: 10px;
 }
 
 .logo-image {
-    height: 100px; 
+    height: 75px; 
     width: auto;
 }
 
 .titulo {
     margin: 0;
+    flex-grow: 1; /* Adicionado */
 }
 
 .linha_border {
