@@ -24,7 +24,7 @@ body {
 
 .titulo {
     margin: 0;
-    flex-grow: 1; /* Adicionado */
+    flex-grow: 1;
 }
 
 .linha_border {
@@ -61,18 +61,17 @@ header {
 .pesquisar_caixa {
     position: absolute;
     top: 50%;
-    left: 10px; /* Ajuste conforme necessário */
+    left: 10px; 
     transform: translateY(-50%);
     font-family: Comic Sans MS;
     font-size: 26px;
     color: #470000;
     transition: .5s;
-    z-index: 1; /* Garante que a caixa de pesquisa fique acima do campo de entrada */
-}
+    z-index: 1; /
 
 .input_pesquisa {
     padding: 10px;
-    padding-left: 20px; /* Ajuste conforme necessário */
+    padding-left: 20px; 
     width: 200px;
     height: 40px;
     background-color: rgba(255, 0, 0, 0.644);
