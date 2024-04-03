@@ -24,7 +24,7 @@ body {
 
 .titulo {
     margin: 0;
-    flex-grow: 1;
+    flex-grow: 1; 
 }
 
 .linha_border {
@@ -67,11 +67,12 @@ header {
     font-size: 26px;
     color: #470000;
     transition: .5s;
-    z-index: 1; /
+    z-index: 1; 
+}
 
 .input_pesquisa {
     padding: 10px;
-    padding-left: 20px; 
+    padding-left: 20px;
     width: 200px;
     height: 40px;
     background-color: rgba(255, 0, 0, 0.644);
