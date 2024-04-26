@@ -11,16 +11,16 @@ body {
     padding: 10px;
     width: 100%; 
     
-    background: linear-gradient( rgb(218, 0, 0), rgb(243, 87, 87));
+    background: linear-gradient( rgb(39, 35, 86), rgb(69, 59, 175));
 }
 
 
 .logo {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .logo-image {
-    height: 75px; 
+    height: 100px; 
     width: auto;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .linha_border {
-    border-bottom: 3px solid rgb(218, 0, 0);
+    border-bottom: 3px solid rgb(29, 26, 65);
 }
 
 header {
@@ -38,7 +38,7 @@ header {
 }
 
 .butao {
-    background-color: rgb(39, 35, 86);
+    background-color: rgb(69, 59, 175);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,11 +48,11 @@ header {
     margin-right: 2px;
     transition: background-color 5s, width 1s;
     cursor: pointer;
-    border: 2px solid gray;
+    border: 2px solid rgb(18, 16, 39);
 }
 
 .butao:hover {
-    background-color: rgba(255, 0, 0, 0.644);
+    background-color: rgba(69, 59, 175 , 1);
     width: 160px;
 }
 
@@ -79,8 +79,8 @@ header {
     padding-left: 20px;
     width: 200px;
     height: 40px;
-    background-color: rgba(255, 0, 0, 0.644);
-    border: 4px solid #3f0f0f;
+    background-color: rgb(69, 59, 175);
+    border: 4px solid rgb(29, 26, 65);
     border-radius: 50px;
     box-sizing: border-box;
     font-family: Comic Sans MS;
@@ -92,11 +92,11 @@ header {
 }
 ::placeholder {
     color: rgba(255, 255, 255, 0.644);
-    opacity: 70%; 
+    opacity: 90%; 
   }
 .pesquisa:hover .input_pesquisa {
     width: 350px;
-    background: #fa5757;
+    background: rgb(69, 59, 175);
     border-radius: 10px;
     
 }
