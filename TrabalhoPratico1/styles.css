@@ -1,8 +1,11 @@
 body {
     margin: 0;
     font-family: Comic Sans MS;
-
+    background-color: rgb(159, 151, 247);
+    overflow-x: hidden; 
 }
+
+
 
 .header-content {
     display: flex;
@@ -53,7 +56,7 @@ header {
 
 .butao:hover {
     background-color: rgba(69, 59, 175 , 1);
-    width: 160px;
+    width: 140px;
 }
 
 .pesquisa {
@@ -101,3 +104,67 @@ header {
     
 }
 
+.barra_opcao {
+    display: flex;
+    align-items: flex-start;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.descricao {
+    padding: 10px;
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: 200px;
+    margin-top: 40px; 
+    font-family: Comic Sans MS;
+    font-size: 20px;
+}
+
+.filiacoes{
+    margin-top: 70px;
+    font-size:20px;
+}
+.filiacoestexto {
+    margin-right: 20px;
+}
+
+.logo_filiacao {
+    margin-top: 15px;
+    display: flex;
+    align-items: center; /* Para centralizar verticalmente */
+}
+.logo_crossbow {
+    margin-top: 20px;
+    display: flex;
+    align-items: center; /* Para centralizar verticalmente */
+}
+
+.logo-paragrafo-img {
+    height: 100px;
+    width: auto;
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+.logo-ifaa {
+    height: 40px;
+    width: auto;
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+.logo-ibep{
+    height: 22px;
+    width: auto;
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+.logo-iau{
+    height: 70px;
+    width: auto;
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
+.logo-wcsa{
+    height: 90px;
+    width: auto;
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
