@@ -38,8 +38,7 @@ header {
 }
 
 .butao {
-    background-color: rgba(255, 0, 0, 0.644);
-    
+    background-color: rgb(39, 35, 86);
     display: flex;
     justify-content: center;
     align-items: center;
