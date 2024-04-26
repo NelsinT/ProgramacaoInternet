@@ -45,20 +45,51 @@ header {
     height: 80px;
     margin-left: 2px;
     margin-right: 2px;
-    transition: background-color 5s, width 1s;
+    transition: background-color 0.3s, width 0.3s; /* Ajustei as transições para serem mais rápidas */
     cursor: pointer;
     border: 2px solid rgb(18, 16, 39);
+    color: white; /* Definindo a cor do texto para branco */
+    text-decoration: none; /* Remover sublinhado do link */
 }
 
 .butao:hover {
     background-color: rgba(69, 59, 175 , 1);
-    width: 140px;
+    width: 180px; /* Manter a largura consistente no hover */
 }
 
-.pesquisa {
+.dropdown {
     position: relative;
-    text-align: center;
+    display: inline-block;
 }
+
+.submenu {
+    display: none;
+    position: absolute;
+    left: 180px; /* Posicionar à direita do botão, sem sobreposição */
+    top: 0; /* Alinhar ao topo do botão */
+    background-color: rgb(69, 59, 175); /* Mesma cor de fundo do botão */
+    border: 2px solid rgb(18, 16, 39); /* Borda para estilo */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    min-width: 180px; /* Largura mínima do submenu */
+}
+
+.submenu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none; /* Estilo do link no submenu */
+    display: block;
+    text-align: left;
+}
+
+.submenu a:hover {
+    background-color: rgba(18, 16, 39, 0.8); /* Alteração de cor ao passar o mouse */
+}
+
+.dropdown:hover .submenu {
+    display: block; /* Mostrar submenu ao passar o mouse sobre o botão */
+}
+
 
 .pesquisar_caixa {
     position: absolute;
@@ -83,14 +114,9 @@ header {
     box-sizing: border-box;
     font-family: Arial;
     font-size: 26px;
-    color: #350101;
+    color: rgb(29, 26, 65);;
     outline: none;
     transition: .5s;
-}
-
-.pesquisa1 {
-    position: relative;
-    text-align: center;
 }
 
 .pesquisar_caixa1 {
@@ -116,7 +142,7 @@ header {
     box-sizing: border-box;
     font-family: Arial;
     font-size: 26px;
-    color: #350101;
+    color: rgb(29, 26, 65);
     outline: none;
     transition: .5s;
 }
@@ -246,4 +272,15 @@ a:hover {
     height: 100px;
     width: auto;
     margin-right: 10px; 
+}
+.subtitle{
+    font-size: 20px;
+    font-family: Arial;
+}
+.organizarcontacto{
+    font-size: 15px;
+    font-family: Arial;
+}
+.fixfuncoes{
+    margin-top: 30px;
 }
