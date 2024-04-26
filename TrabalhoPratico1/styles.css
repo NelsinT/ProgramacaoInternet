@@ -88,6 +88,50 @@ header {
     transition: .5s;
 }
 
+.pesquisa1 {
+    position: relative;
+    text-align: center;
+}
+
+.pesquisar_caixa1 {
+    position: absolute;
+    top: 50%;
+    left: 160px; 
+    transform: translateY(-50%);
+    font-family: Arial;
+    font-size: 26px;
+    color: #470000;
+    transition: .5s;
+    z-index: 1; 
+}
+
+.input_pesquisa1 {
+    padding: 10px;
+    padding-left: 20px;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(69, 59, 175);
+    border: 4px solid rgb(29, 26, 65);
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: Arial;
+    font-size: 26px;
+    color: #350101;
+    outline: none;
+    transition: .5s;
+}
+::placeholder1 {
+    color: rgba(255, 255, 255, 0.644);
+    opacity: 90%; 
+}
+
+.pesquisa1:hover .input_pesquisa1 {
+    width: 350px;
+    background: rgb(69, 59, 175);
+    border-radius: 10px;
+}
+
+
 ::placeholder {
     color: rgba(255, 255, 255, 0.644);
     opacity: 90%; 
