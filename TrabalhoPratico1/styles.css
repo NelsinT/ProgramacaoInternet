@@ -114,6 +114,17 @@ header {
     font-size:20px;
 }
 
+.descricao {
+    padding: 10px;
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: 200px;
+    margin-top: 40px; 
+    font-family: Comic Sans MS;
+    font-size: 20px;
+}
+
+
 .filiacoestexto {
     margin-right: 20px;
     flex-direction: column;
