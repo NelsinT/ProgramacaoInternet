@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Comic Sans MS;
+    font-family: Arial;
     background-color: rgb(159, 151, 247);
     overflow-x: hidden; 
 }
@@ -69,7 +69,7 @@ header {
     top: 50%;
     left: 160px; 
     transform: translateY(-50%);
-    font-family: Comic Sans MS;
+    font-family: Arial;
     font-size: 26px;
     color: #470000;
     transition: .5s;
@@ -86,7 +86,7 @@ header {
     border: 4px solid rgb(29, 26, 65);
     border-radius: 50px;
     box-sizing: border-box;
-    font-family: Comic Sans MS;
+    font-family: Arial;
     font-size: 26px;
     color: #350101;
     outline: none;
@@ -120,7 +120,7 @@ header {
     margin-right: auto;
     margin-left: 200px;
     margin-top: 40px; 
-    font-family: Comic Sans MS;
+    font-family: Arial ;
     font-size: 20px;
 }
 
@@ -135,36 +135,44 @@ header {
 .logo_filiacao {
     margin-top: 15px;
     display: flex;
-    align-items: center; /* Para centralizar verticalmente */
+    align-items: center; 
 }
 .logo_crossbow {
     margin-top: 20px;
     display: flex;
-    align-items: center; /* Para centralizar verticalmente */
+    align-items: center; 
 }
 
 .logo-paragrafo-img {
     height: 100px;
     width: auto;
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    margin-right: 10px; 
 }
 .logo-ifaa {
     height: 40px;
     width: auto;
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    margin-right: 10px; 
 }
 .logo-ibep{
     height: 22px;
     width: auto;
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    margin-right: 10px; 
 }
 .logo-iau{
     height: 70px;
     width: auto;
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    margin-right: 10px; 
 }
 .logo-wcsa{
     height: 90px;
     width: auto;
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
 }
+.footer {
+    text-align: center; 
+    justify-content: space-between;
+    color: white;
+
+    padding: 10px;
+    width: 100%; 
+    background: linear-gradient( rgb(39, 35, 86), rgb(69, 59, 175));
+}   
