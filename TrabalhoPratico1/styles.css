@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: Arial;
     background-color: rgb(159, 151, 247);
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .header-content {
@@ -10,8 +10,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    width: 100%; 
-    background: linear-gradient( rgb(39, 35, 86), rgb(69, 59, 175));
+    width: 100%;
+    background: linear-gradient(rgb(39, 35, 86), rgb(69, 59, 175));
 }
 
 .logo {
@@ -19,13 +19,13 @@ body {
 }
 
 .logo-image {
-    height: 100px; 
+    height: 100px;
     width: auto;
 }
 
 .titulo {
     margin: 0;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .linha_border {
@@ -51,7 +51,7 @@ header {
 }
 
 .butao:hover {
-    background-color: rgba(69, 59, 175 , 1);
+    background-color: rgba(69, 59, 175, 1);
     width: 140px;
 }
 
@@ -63,42 +63,42 @@ header {
 .submenu {
     display: none;
     position: absolute;
-    left: 180px; /* Posicionar à direita do botão, sem sobreposição */
-    top: 0; /* Alinhar ao topo do botão */
-    background-color: rgb(69, 59, 175); /* Mesma cor de fundo do botão */
-    border: 2px solid rgb(18, 16, 39); /* Borda para estilo */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 180px;
+    top: 0;
+    background-color: rgb(69, 59, 175);
+    border: 2px solid rgb(18, 16, 39);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    min-width: 180px; /* Largura mínima do submenu */
+    min-width: 180px;
 }
 
 .submenu a {
     color: white;
     padding: 12px 16px;
-    text-decoration: none; /* Estilo do link no submenu */
+    text-decoration: none;
     display: block;
     text-align: left;
 }
 
 .submenu a:hover {
-    background-color: rgba(18, 16, 39, 0.8); /* Alteração de cor ao passar o mouse */
+    background-color: rgba(18, 16, 39, 0.8);
 }
 
 .dropdown:hover .submenu {
-    display: block; /* Mostrar submenu ao passar o mouse sobre o botão */
+    display: block;
 }
 
 
 .pesquisar_caixa {
     position: absolute;
     top: 50%;
-    left: 160px; 
+    left: 160px;
     transform: translateY(-50%);
     font-family: Arial;
     font-size: 26px;
     color: #470000;
     transition: .5s;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .input_pesquisa {
@@ -112,7 +112,8 @@ header {
     box-sizing: border-box;
     font-family: Arial;
     font-size: 26px;
-    color: rgb(29, 26, 65);;
+    color: rgb(29, 26, 65);
+    ;
     outline: none;
     transition: .5s;
 }
@@ -120,13 +121,13 @@ header {
 .pesquisar_caixa1 {
     position: absolute;
     top: 50%;
-    left: 160px; 
+    left: 160px;
     transform: translateY(-50%);
     font-family: Arial;
     font-size: 26px;
     color: #470000;
     transition: .5s;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .input_pesquisa1 {
@@ -144,10 +145,7 @@ header {
     outline: none;
     transition: .5s;
 }
-::placeholder1 {
-    color: rgba(255, 255, 255, 0.644);
-    opacity: 90%; 
-}
+
 
 .pesquisa1:hover .input_pesquisa1 {
     width: 350px;
@@ -158,7 +156,7 @@ header {
 
 ::placeholder {
     color: rgba(255, 255, 255, 0.644);
-    opacity: 90%; 
+    opacity: 90%;
 }
 
 .pesquisa:hover .input_pesquisa {
@@ -177,9 +175,9 @@ header {
     flex-direction: column;
 }
 
-.filiacoes{
+.filiacoes {
     margin-top: 70px;
-    font-size:20px;
+    font-size: 20px;
 }
 
 .descricao {
@@ -187,8 +185,8 @@ header {
     max-width: 50%;
     margin-right: auto;
     margin-left: 200px;
-    margin-top: 40px; 
-    font-family: Comic Sans MS;
+    margin-top: 40px;
+    font-family: Arial;
     font-size: 20px;
 }
 
@@ -202,89 +200,96 @@ header {
 .logo_filiacao {
     margin-top: 15px;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .logo_crossbow {
     margin-top: 20px;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .logo-paragrafo-img {
     height: 100px;
     width: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .logo-ifaa {
     height: 40px;
     width: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
-.logo-ibep{
+.logo-ibep {
     height: 22px;
     width: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
-.logo-iau{
+.logo-iau {
     height: 70px;
     width: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
-.logo-wcsa{
+.logo-wcsa {
     height: 90px;
     width: auto;
 }
-.clubestexto{
+
+.clubestexto {
     margin-top: 80px;
     margin-left: 70px;
     margin-right: 100px;
     height: 500%;
 }
+
 .footer {
-    text-align: center; 
+    text-align: center;
     justify-content: space-between;
     color: white;
     padding: 10px;
-    width: 100%; 
-    background: linear-gradient( rgb(39, 35, 86), rgb(69, 59, 175));
-}   
+    width: 100%;
+    background: linear-gradient(rgb(39, 35, 86), rgb(69, 59, 175));
+}
 
 
 a {
-    text-decoration: none; /* Remove o sublinhado padrão para todos os links */
-    color: inherit; /* Mantém a cor padrão dos links */
+    text-decoration: none;
+    color: inherit;
 
 }
 
 a:hover {
-    text-decoration: underline; /* Adiciona o sublinhado apenas quando o mouse está sobre o link */
-    
+    text-decoration: underline;
+
 }
-.logoclubes{
+
+.logoclubes {
     margin-top: 50px;
     height: 100px;
     width: auto;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
-.subtitle{
+
+.subtitle {
     font-size: 20px;
     font-family: Arial;
     margin-top: 50px;
 }
-.organizarcontacto{
+
+.organizarcontacto {
     font-size: 15px;
     font-family: Arial;
     margin-bottom: 40px;
 
 }
-.fixfuncoes{
+
+.fixfuncoes {
     margin-top: 30px;
 }
+
 .tabela-membros table {
     width: 100%;
     border-collapse: collapse;
@@ -313,6 +318,6 @@ a:hover {
     border-bottom: 2px solid rgb(69, 59, 175);
 }
 
-.fixemail{
+.fixemail {
     margin-bottom: 20px;
 }
