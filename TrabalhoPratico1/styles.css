@@ -5,18 +5,14 @@ body {
     overflow-x: hidden; 
 }
 
-
-
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     width: 100%; 
-    
     background: linear-gradient( rgb(39, 35, 86), rgb(69, 59, 175));
 }
-
 
 .logo {
     margin-right: 20px;
@@ -74,7 +70,6 @@ header {
     color: #470000;
     transition: .5s;
     z-index: 1; 
-    
 }
 
 .input_pesquisa {
@@ -91,17 +86,17 @@ header {
     color: #350101;
     outline: none;
     transition: .5s;
-    
 }
+
 ::placeholder {
     color: rgba(255, 255, 255, 0.644);
     opacity: 90%; 
-  }
+}
+
 .pesquisa:hover .input_pesquisa {
     width: 350px;
     background: rgb(69, 59, 175);
     border-radius: 10px;
-    
 }
 
 .barra_opcao {
@@ -114,22 +109,15 @@ header {
     flex-direction: column;
 }
 
-.descricao {
-    padding: 10px;
-    max-width: 50%;
-    margin-right: auto;
-    margin-left: 200px;
-    margin-top: 40px; 
-    font-family: Arial ;
-    font-size: 20px;
-}
-
 .filiacoes{
     margin-top: 70px;
     font-size:20px;
 }
+
 .filiacoestexto {
     margin-right: 20px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .logo_filiacao {
@@ -137,6 +125,7 @@ header {
     display: flex;
     align-items: center; 
 }
+
 .logo_crossbow {
     margin-top: 20px;
     display: flex;
@@ -148,31 +137,58 @@ header {
     width: auto;
     margin-right: 10px; 
 }
+
 .logo-ifaa {
     height: 40px;
     width: auto;
     margin-right: 10px; 
 }
+
 .logo-ibep{
     height: 22px;
     width: auto;
     margin-right: 10px; 
 }
+
 .logo-iau{
     height: 70px;
     width: auto;
     margin-right: 10px; 
 }
+
 .logo-wcsa{
     height: 90px;
     width: auto;
+}
+.clubestexto{
+    margin-top: 80px;
+    margin-left: 70px;
+    margin-right: 100px;
+    height: 500%;
 }
 .footer {
     text-align: center; 
     justify-content: space-between;
     color: white;
-
     padding: 10px;
     width: 100%; 
     background: linear-gradient( rgb(39, 35, 86), rgb(69, 59, 175));
 }   
+
+
+a {
+    text-decoration: none; /* Remove o sublinhado padrão para todos os links */
+    color: inherit; /* Mantém a cor padrão dos links */
+
+}
+
+a:hover {
+    text-decoration: underline; /* Adiciona o sublinhado apenas quando o mouse está sobre o link */
+    
+}
+.logoclubes{
+    margin-top: 50px;
+    height: 100px;
+    width: auto;
+    margin-right: 10px; 
+}
