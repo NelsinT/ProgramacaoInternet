@@ -45,16 +45,14 @@ header {
     height: 80px;
     margin-left: 2px;
     margin-right: 2px;
-    transition: background-color 0.3s, width 0.3s; /* Ajustei as transições para serem mais rápidas */
+    transition: background-color 5s, width 1s;
     cursor: pointer;
     border: 2px solid rgb(18, 16, 39);
-    color: white; /* Definindo a cor do texto para branco */
-    text-decoration: none; /* Remover sublinhado do link */
 }
 
 .butao:hover {
     background-color: rgba(69, 59, 175 , 1);
-    width: 180px; /* Manter a largura consistente no hover */
+    width: 140px;
 }
 
 .dropdown {
@@ -276,11 +274,45 @@ a:hover {
 .subtitle{
     font-size: 20px;
     font-family: Arial;
+    margin-top: 50px;
 }
 .organizarcontacto{
     font-size: 15px;
     font-family: Arial;
+    margin-bottom: 40px;
+
 }
 .fixfuncoes{
     margin-top: 30px;
+}
+.tabela-membros table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.tabela-membros th,
+.tabela-membros td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.tabela-membros th {
+    background-color: rgb(69, 59, 175);
+    color: #ffffff;
+    text-align: center;
+}
+
+.tabela-membros tr:last-of-type {
+    border-bottom: 2px solid rgb(69, 59, 175);
+}
+
+.fixemail{
+    margin-bottom: 20px;
 }
