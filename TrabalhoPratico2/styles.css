@@ -1,3 +1,27 @@
+.body{
+    overflow-x: hidden;
+}
 .semestres{
     display: inline;
+    margin-left: 200px;
+} 
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(rgb(39, 35, 86), rgb(69, 59, 175));
+}   
+.header-content .titulo {
+    text-align: center;
+    flex: 1;
+}
+
+.semestres {
+    display: inline;
+    margin-left: 200px;
+}
+.logo-imagem {
+    width: 110px;
+    height: auto;
 }
