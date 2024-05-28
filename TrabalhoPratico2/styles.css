@@ -30,9 +30,14 @@ body {
     height: auto;
 }
 
-.semestrestodos {
+.semestres-container {
+    margin-bottom: 30px;
+}
+
+.semestres-content {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .primeiro_semestre,
@@ -40,9 +45,7 @@ body {
     flex: 1;
 }
 
-
-
-.semestrestodos a {
+.semestres-content a {
     text-decoration: none;
     color: #000;
     display: block;
@@ -53,4 +56,17 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     margin: 5px 0;
+}
+
+.linha_vertical {
+    width: 2px;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+}
+.curriculares{
+    font-family: "Copperplate", Fantasy;
+    font-size: 25px;
 }
