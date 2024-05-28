@@ -1,6 +1,10 @@
 body {
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
+    background-color: rgb(162, 160, 185);
 }
+
 
 .semestres {
     display: inline;
@@ -17,7 +21,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background: linear-gradient(rgb(39, 35, 86), rgb(69, 59, 175));
+    background: linear-gradient(rgb(41, 41, 43), rgb(162, 160, 185));
 }
 
 .header-content .titulo {
@@ -69,4 +73,16 @@ body {
 .curriculares{
     font-family: "Copperplate", Fantasy;
     font-size: 25px;
+
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2%;
+    background: linear-gradient(rgb(162, 160, 185), rgb(41, 41, 43));
+    color: white; 
+    text-align: center; 
+    margin: 0 auto; /* Adicionado para centralizar horizontalmente */
 }
