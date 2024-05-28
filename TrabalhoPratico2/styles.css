@@ -1,37 +1,54 @@
-.body{
+body {
     overflow-x: hidden;
 }
-.semestres{
+
+.semestres {
     display: inline;
-    margin-left: 200px;
-} 
+    margin-left: 2%;
+}
+
+.semestres2 {
+    margin-left: 55%;
+    display: inline;
+}
+
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
     background: linear-gradient(rgb(39, 35, 86), rgb(69, 59, 175));
-}   
+}
+
 .header-content .titulo {
     text-align: center;
     flex: 1;
 }
 
-.semestres {
-    display: inline;
-    margin-left: 200px;
-}
 .logo-imagem {
     width: 110px;
     height: auto;
 }
-.primeiroano a, .segundooano a, .terceiroano a {
+
+.semestrestodos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.primeiro_semestre,
+.segundo_semestre {
+    flex: 1;
+}
+
+
+
+.semestrestodos a {
     text-decoration: none;
     color: #000;
     display: block;
     padding: 10px;
     height: 30px;
-    width: 30%;
+    width: 90%;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
