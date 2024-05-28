@@ -25,3 +25,15 @@
     width: 110px;
     height: auto;
 }
+.primeiroano a, .segundooano a, .terceiroano a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 10px;
+    height: 30px;
+    width: 30%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+}
