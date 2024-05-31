@@ -1,19 +1,5 @@
 var lista_semestres = [];
 
-var unidadesCurriculares = {
-    "primeiro_ano": {
-        "primeiro_semestre": ["Álgebra Linear e Geometria Analítica", "Fundamentos de Programação", "Interação com o Utilizador", "Matemática I", "Sistemas Digitais"],
-        "segundo_semestre": ["Circuitos Eletrónicos", "Estruturas de Dados", "Matemática II", "Programação para a Internet I", "Tecnologias e Arquitetura de Computadores"]
-    },
-    "segundo_ano": {
-        "primeiro_semestre": ["Programação para a Internet II", "Estatistica", "Bases de Dados", "Multimédia e CG", "Programação"],
-        "segundo_semestre": ["Bases de Dados II", "Programação Aplicada", "Engenharia de Software", "Redes de Computadores I", "Sistemas Operativos"]
-    },
-    "terceiro_ano": {
-        "primeiro_semestre": ["Gestão de Projeto", "Redes de Computadores II", "Introdução á Inteligência Artificial", "Tecnologias e Aplicações Móveis", "Laboratório de Programação"],
-        "segundo_semestre": ["Sistemas de Informação", "Sistemas Distribuídos", "Gestão de Sistemas e Redes"]
-    }
-};
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -42,17 +28,54 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("fecharPopup-remover").addEventListener("click", removerUnidadeCurricular);
     document.getElementById("adicionarUnidadeCurricular").addEventListener("click", adicionarUnidadeCurricular);
 
+    function getCurricularesFromHTML() {
+        let curriculares = {
+            "primeiro_ano": {
+                "primeiro_semestre": [],
+                "segundo_semestre": []
+            },
+            "segundo_ano": {
+                "primeiro_semestre": [],
+                "segundo_semestre": []
+            },
+            "terceiro_ano": {
+                "primeiro_semestre": [],
+                "segundo_semestre": []
+            }
+        };
+    
+        document.querySelectorAll('.primeiro_ano ul.primeiro_ano a').forEach(a => curriculares.primeiro_ano.primeiro_semestre.push(a.textContent));
+        document.querySelectorAll('.primeiro_ano ul:not(.primeiro_ano) a').forEach(a => curriculares.primeiro_ano.segundo_semestre.push(a.textContent));
+        
+        document.querySelectorAll('.segundo_ano ul.segundo_ano a').forEach(a => curriculares.segundo_ano.primeiro_semestre.push(a.textContent));
+        document.querySelectorAll('.s5egundo_ano ul:not(.segundo_ano) a').forEach(a => curriculares.segundo_ano.segundo_semestre.push(a.textContent));
+        
+        document.querySelectorAll('.terceiro_ano ul.terceiro_ano a').forEach(a => curriculares.terceiro_ano.primeiro_semestre.push(a.textContent));
+        document.querySelectorAll('.terceiro_ano ul:not(.terceiro_ano) a').forEach(a => curriculares.terceiro_ano.segundo_semestre.push(a.textContent));
+    
+        return curriculares;
+    }
+    
     function removerUnidadeCurricular() {
         let nome = document.getElementById("texto_nome_remover").value.trim();
         let ano = document.getElementById("texto_ano_remover").value.trim();
         let semestre = document.getElementById("texto_semestre_remover").value.trim();
-    
+        
         if (nome && ano && semestre) {
+            let unidadesCurriculares = getCurricularesFromHTML();
+    
             if (unidadesCurriculares[ano] && unidadesCurriculares[ano][semestre]) {
                 let index = unidadesCurriculares[ano][semestre].indexOf(nome);
                 if (index !== -1) {
                     unidadesCurriculares[ano][semestre].splice(index, 1);
-                    
+    
+                    let listItems = document.querySelectorAll(`.${ano} ul a`);
+                    listItems.forEach(item => {
+                        if (item.textContent === nome) {
+                            item.remove();
+                        }
+                    });
+    
                     fecharPopupRemover();
                     mostrarMensagem("Unidade curricular removida com sucesso.");
                 } else {
@@ -64,42 +87,30 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             mostrarMensagem("Por favor, preencha todos os campos antes de remover.");
         }
-        atualizarInterface()
+        atualizarInterface();
     }
     
-    function atualizarInterface() {
-        let nome = document.getElementById("texto_nome_remover").value.trim();
-        let ano = document.getElementById("texto_ano_remover").value.trim();
-        let semestre = document.getElementById("texto_semestre_remover").value.trim();
-    
-        // Construir o seletor com base no ano e semestre
-        let selector = `.primeiroano .${semestre} a`; // Ajustado para refletir a estrutura do HTML
-        let unidadesHTML = document.querySelectorAll(selector);
-    
-        // Iterar sobre os elementos encontrados e remover aquele com o texto correspondente
-        unidadesHTML.forEach(function(element) {
-            if (element.textContent.trim() === nome) {
-                element.remove();
-            }
-        });
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+function atualizarInterface() {
+    let nome = document.getElementById("texto_nome_remover").value.trim();
+    let ano = document.getElementById("texto_ano_remover").value.trim();
+    let semestre = document.getElementById("texto_semestre_remover").value.trim();
+
+    let selector = `.${ano} .${semestre} a`; 
+    let unidadesHTML = document.querySelectorAll(selector);
+
+    unidadesHTML.forEach(function(element) {
+        if (element.textContent.trim() === nome) {
+            element.remove();
+        }
+    });
+}
+
+        
     
 function adicionarUnidadeCurricular() {
-    var nome = document.getElementById("texto_nome").value;
-    var ano = document.getElementById("texto_ano").value;
-    var semestre = document.getElementById("texto_semestre").value;
+    var nome = document.getElementById("texto_nome").value.trim();
+    var ano = document.getElementById("texto_ano").value.trim();
+    var semestre = document.getElementById("texto_semestre").value.trim();
 
     if (nome && ano && semestre) {
         var unidadeCurricular = {
@@ -107,19 +118,31 @@ function adicionarUnidadeCurricular() {
             ano: ano,
             semestre: semestre
         };
+
         var listaSemestres = JSON.parse(localStorage.getItem("lista_semestres")) || [];
         listaSemestres.push(unidadeCurricular);
         localStorage.setItem("lista_semestres", JSON.stringify(listaSemestres));
+
+        var semestreElement = document.querySelector(`.${ano} .${semestre} ul`);
+        if (semestreElement) {
+            var novaUnidade = document.createElement("a");
+            novaUnidade.textContent = nome;
+            semestreElement.appendChild(novaUnidade);
+        } else {
+            mostrarMensagem("Não foi possível encontrar o ano ou semestre especificado no HTML.");
+        }
+
         document.getElementById("texto_nome").value = "";
         document.getElementById("texto_ano").value = "";
         document.getElementById("texto_semestre").value = "";
+
         mostrarMensagem("Unidade curricular adicionada com sucesso.");
     } else {
         mostrarMensagem("Por favor, preencha todos os campos antes de salvar.");
     }
     fecharPopup();
-
 }
+
 
     function mostrarMensagem(mensagem) {
         let mensagemElemento = document.getElementById("mensagem");
@@ -138,5 +161,89 @@ function adicionarUnidadeCurricular() {
 
         var tabela_users = document.getElementById('tabela_users');
         tabela_users.innerHTML = "";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    function abrirPopupMomentos(nomeUnidadeCurricular) {
+        document.getElementById("popup-titulo").textContent = nomeUnidadeCurricular;
+        document.getElementById("popup-momentos").style.display = "block";
+        carregarMomentos(nomeUnidadeCurricular);
+    }
+
+    function fecharPopupMomentos() {
+        document.getElementById("popup-momentos").style.display = "none";
+    }
+
+    function abrirPopupAdicionarMomento() {
+        document.getElementById("popup-adicionar-momento").style.display = "block";
+    }
+
+    function fecharPopupAdicionarMomento() {
+        document.getElementById("popup-adicionar-momento").style.display = "none";
+    }
+
+function carregarMomentos(nomeUnidadeCurricular) {
+    let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
+    let lista = document.getElementById("momentos-lista");
+    lista.innerHTML = "";
+
+    momentos.forEach((momento, index) => {
+        let li = document.createElement("li");
+        li.className = "momento-item";
+        li.textContent = `${momento.nomeAvaliacao}: ${momento.data} - ${momento.horaInicio} (${momento.duracao} minutos)`;
+        let botaoRemover = document.createElement("button");
+        botaoRemover.textContent = "Remover";
+        botaoRemover.onclick = () => removerMomento(nomeUnidadeCurricular, index);
+        li.appendChild(botaoRemover);
+        lista.appendChild(li);
+    });
+}
+
+    function adicionarMomento() {
+        let nomeUnidadeCurricular = document.getElementById("popup-titulo").textContent;
+        let nomeAvaliacao = document.getElementById("nome-avaliacao").value.trim();
+        let data = document.getElementById("data-momento").value;
+        let horaInicio = document.getElementById("hora-inicio-momento").value;
+        let duracao = parseInt(document.getElementById("duracao-momento").value);
+
+        if (nomeAvaliacao && data && horaInicio && duracao) {
+            let momento = { nomeAvaliacao, data, horaInicio, duracao };
+            let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
+            momentos.push(momento);
+            localStorage.setItem(nomeUnidadeCurricular, JSON.stringify(momentos));
+            carregarMomentos(nomeUnidadeCurricular);
+            fecharPopupAdicionarMomento();
+        } else {
+            mostrarMensagem("Por favor, preencha todos os campos antes de salvar.");
+        }
+    }
+
+    function removerMomento(nomeUnidadeCurricular, index) {
+        let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
+        momentos.splice(index, 1);
+        localStorage.setItem(nomeUnidadeCurricular, JSON.stringify(momentos));
+        carregarMomentos(nomeUnidadeCurricular);
+    }
+
+    document.getElementById("fecharPopupMomentos").addEventListener("click", fecharPopupMomentos);
+    document.getElementById("adicionar-momento-botao").addEventListener("click", abrirPopupAdicionarMomento);
+    document.getElementById("cancelarAdicionarMomento").addEventListener("click", fecharPopupAdicionarMomento);
+    document.getElementById("salvarMomento").addEventListener("click", adicionarMomento);
+
+    document.querySelectorAll('.primeiro_ano a, .segundo_ano a, .terceiro_ano a').forEach(a => {
+        a.addEventListener('click', function() {
+            abrirPopupMomentos(this.textContent);
+        });
+    });
+
+    function mostrarMensagem(mensagem) {
+        let mensagemElemento = document.getElementById("mensagem");
+        mensagemElemento.textContent = mensagem;
+        mensagemElemento.style.display = "block";
+        setTimeout(function() {
+            mensagemElemento.style.display = "none";
+        }, 3000);
     }
 });

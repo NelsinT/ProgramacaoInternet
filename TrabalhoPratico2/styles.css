@@ -129,13 +129,7 @@
         position: relative; /* Posicionamento relativo ao corpo */
     }
     
-    .close,
-    .close-remover {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+   
     
     .close:hover,
     .close:focus,
@@ -145,3 +139,76 @@
         text-decoration: none;
         cursor: pointer;
     }
+    .popup-momentos, .popup-adicionar-momento {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .popup-momentos-content, .popup-adicionar-momento-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        max-width: 500px;
+    }
+    
+    .momento-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .momento-item button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+
+    .popup-momentos, .popup-adicionar-momento {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .popup-momentos-content, .popup-adicionar-momento-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        max-width: 500px;
+    }
+    
+    .momento-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .momento-item button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+    }
+    

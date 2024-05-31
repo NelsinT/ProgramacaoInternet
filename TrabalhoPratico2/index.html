@@ -59,10 +59,30 @@
 
             <div id="mensagem" class="mensagem"></div>
 
-
+            <div id="popup-momentos" class="popup-momentos">
+                <div class="popup-momentos-content">
+                    <h2 id="popup-titulo"></h2>
+                    <ul id="momentos-lista"></ul>
+                    <button id="adicionar-momento-botao">Adicionar Momento</button>
+                    <button id="fecharPopupMomentos">Fechar</button>
+            
+                    <div id="popup-adicionar-momento" class="popup-adicionar-momento">
+                        <div class="popup-adicionar-momento-content">
+                            <h2>Adicionar Momento</h2>
+                            <input type="text" id="nome-avaliacao" placeholder="Nome da Avaliação">
+                            <input type="date" id="data-momento" placeholder="Data">
+                            <input type="time" id="hora-inicio-momento" placeholder="Hora de Início">
+                            <input type="number" id="duracao-momento" placeholder="Duração (minutos)">
+                            <button id="salvarMomento">Salvar</button>
+                            <button id="cancelarAdicionarMomento">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 
             <div class="semestres-container">
-                <div class="primeiroano">
+                <div class="primeiro_ano">
                     <p class="semestres">Primeiro Semestre </p>
                     <p class="semestres2">Segundo Semestre </p>
 
