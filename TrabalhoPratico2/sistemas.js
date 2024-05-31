@@ -90,20 +90,20 @@ document.addEventListener("DOMContentLoaded", function() {
         atualizarInterface();
     }
     
-function atualizarInterface() {
-    let nome = document.getElementById("texto_nome_remover").value.trim();
-    let ano = document.getElementById("texto_ano_remover").value.trim();
-    let semestre = document.getElementById("texto_semestre_remover").value.trim();
-
-    let selector = `.${ano} .${semestre} a`; 
-    let unidadesHTML = document.querySelectorAll(selector);
-
-    unidadesHTML.forEach(function(element) {
-        if (element.textContent.trim() === nome) {
-            element.remove();
-        }
-    });
-}
+    function atualizarInterface(nomeUnidadeCurricular) { // Adicione o parâmetro nomeUnidadeCurricular
+        let nome = document.getElementById("texto_nome_remover").value.trim();
+        let ano = document.getElementById("texto_ano_remover").value.trim();
+        let semestre = document.getElementById("texto_semestre_remover").value.trim();
+    
+        let selector = `.${ano} .${semestre} a`; 
+        let unidadesHTML = document.querySelectorAll(selector);
+    
+        unidadesHTML.forEach(function(element) {
+            if (element.textContent.trim() === nome) {
+                element.remove();
+            }
+        });
+    }
 
         
     
@@ -167,24 +167,38 @@ function adicionarUnidadeCurricular() {
 document.addEventListener("DOMContentLoaded", function() {
 
     function abrirPopupMomentos(nomeUnidadeCurricular) {
+        // Carregar os momentos antes de abrir a janela pop-up
+        carregarMomentos(nomeUnidadeCurricular);
+        
         document.getElementById("popup-titulo").textContent = nomeUnidadeCurricular;
         document.getElementById("popup-momentos").style.display = "block";
-        carregarMomentos(nomeUnidadeCurricular);
+        atualizarTempoTotalGasto(nomeUnidadeCurricular); // Adicionando chamada para atualizar tempo total
     }
 
     function fecharPopupMomentos() {
         document.getElementById("popup-momentos").style.display = "none";
+        atualizarTempoTotalGasto(nomeUnidadeCurricular); 
+        carregarMomentos(nomeUnidadeCurricular);
     }
-
+    
     function abrirPopupAdicionarMomento() {
         document.getElementById("popup-adicionar-momento").style.display = "block";
+        // Carregar os momentos ao abrir a janela de adicionar momento
+        let nomeUnidadeCurricular = document.getElementById("popup-titulo").textContent;
+        carregarMomentos(nomeUnidadeCurricular);
+        atualizarTempoTotalGasto(nomeUnidadeCurricular); 
+
     }
 
     function fecharPopupAdicionarMomento() {
         document.getElementById("popup-adicionar-momento").style.display = "none";
+        atualizarTempoTotalGasto(nomeUnidadeCurricular); 
+        carregarMomentos(nomeUnidadeCurricular);
+
     }
 
-function carregarMomentos(nomeUnidadeCurricular) {
+    function carregarMomentos(nomeUnidadeCurricular) {
+    console.log("Nome da Unidade Curricular:", nomeUnidadeCurricular); // Verifique se o nome da unidade curricular está correto
     let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
     let lista = document.getElementById("momentos-lista");
     lista.innerHTML = "";
@@ -199,32 +213,36 @@ function carregarMomentos(nomeUnidadeCurricular) {
         li.appendChild(botaoRemover);
         lista.appendChild(li);
     });
+    
+    atualizarTempoTotalGasto(nomeUnidadeCurricular); 
 }
-
     function adicionarMomento() {
-        let nomeUnidadeCurricular = document.getElementById("popup-titulo").textContent;
-        let nomeAvaliacao = document.getElementById("nome-avaliacao").value.trim();
-        let data = document.getElementById("data-momento").value;
-        let horaInicio = document.getElementById("hora-inicio-momento").value;
-        let duracao = parseInt(document.getElementById("duracao-momento").value);
-
-        if (nomeAvaliacao && data && horaInicio && duracao) {
-            let momento = { nomeAvaliacao, data, horaInicio, duracao };
-            let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
-            momentos.push(momento);
-            localStorage.setItem(nomeUnidadeCurricular, JSON.stringify(momentos));
-            carregarMomentos(nomeUnidadeCurricular);
-            fecharPopupAdicionarMomento();
-        } else {
-            mostrarMensagem("Por favor, preencha todos os campos antes de salvar.");
-        }
+    let nomeUnidadeCurricular = document.getElementById("popup-titulo").textContent;
+    let nomeAvaliacao = document.getElementById("nome-avaliacao").value.trim();
+    let data = document.getElementById("data-momento").value;
+    let horaInicio = document.getElementById("hora-inicio-momento").value;
+    let duracao = parseInt(document.getElementById("duracao-momento").value);
+    
+    if (nomeAvaliacao && data && horaInicio && duracao) {
+        let momento = { nomeAvaliacao, data, horaInicio, duracao };
+        let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
+        momentos.push(momento);
+        localStorage.setItem(nomeUnidadeCurricular, JSON.stringify(momentos)); // Salvando os momentos no armazenamento local
+        carregarMomentos(nomeUnidadeCurricular); // Carregar os momentos após a adição
+        fecharPopupAdicionarMomento();
+    } else {
+        mostrarMensagem("Por favor, preencha todos os campos antes de salvar.");
     }
+    
+    atualizarTempoTotalGasto(nomeUnidadeCurricular); 
+}
 
     function removerMomento(nomeUnidadeCurricular, index) {
         let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
         momentos.splice(index, 1);
         localStorage.setItem(nomeUnidadeCurricular, JSON.stringify(momentos));
         carregarMomentos(nomeUnidadeCurricular);
+        atualizarTempoTotalGasto();
     }
 
     document.getElementById("fecharPopupMomentos").addEventListener("click", fecharPopupMomentos);
@@ -247,3 +265,29 @@ function carregarMomentos(nomeUnidadeCurricular) {
         }, 3000);
     }
 });
+
+
+function calcularTempoTotalGasto() {
+    let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
+    let tempoTotal = 0;
+
+    momentos.forEach(momento => {
+        tempoTotal += momento.duracao;
+    });
+    atualizarTempoTotalGasto();
+    return tempoTotal;
+}
+
+function atualizarTempoTotalGasto(nomeUnidadeCurricular) {
+    let momentos = JSON.parse(localStorage.getItem(nomeUnidadeCurricular)) || [];
+    let tempoTotal = 0;
+
+    momentos.forEach(momento => {
+        tempoTotal += parseInt(momento.duracao); // Certifique-se de converter a duração para um número inteiro
+    });
+
+    let horas = Math.floor(tempoTotal / 60);
+    let minutos = tempoTotal % 60;
+
+    document.getElementById("tempo-total-gasto").textContent = `Tempo gasto: ${horas} horas e ${minutos} minutos`;
+}
