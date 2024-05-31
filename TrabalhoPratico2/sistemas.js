@@ -136,7 +136,7 @@ function adicionarUnidadeCurricular() {
 
         mostrarMensagem("Unidade curricular adicionada com sucesso.");
 
-        // Após adicionar a unidade curricular, atribuímos novamente os eventos
+
         atribuirEventosUnidadesCurriculares();
     } else {
         mostrarMensagem("Por favor, preencha todos os campos antes de salvar.");
@@ -171,7 +171,6 @@ function abrirPopupMomentos(nomeUnidadeCurricular) {
         carregarMomentos(nomeUnidadeCurricular);
         atualizarTempoTotalGasto(nomeUnidadeCurricular);
     } else {
-        console.error("Os elementos de popup não foram encontrados no HTML.");
     }
 }
 
@@ -229,13 +228,12 @@ function atualizarTempoTotalGasto(nomeUnidadeCurricular) {
     let tempoTotal = 0;
 
     momentos.forEach(momento => {
-        tempoTotal += parseInt(momento.duracao); // Certifique-se de converter a duração para um número inteiro
+        tempoTotal += parseInt(momento.duracao); 
     });
 
     let horas = Math.floor(tempoTotal / 60);
     let minutos = tempoTotal % 60;
 
-    // Aqui você pode atualizar a interface com o tempo total gasto
 }
 
 function fecharPopupMomentos() {
@@ -271,5 +269,4 @@ function adicionarMomento() {
     atualizarTempoTotalGasto(nomeUnidadeCurricular);
 }
 
-// Chamada inicial para atribuir eventos às unidades curriculares
 atribuirEventosUnidadesCurriculares();
