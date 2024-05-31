@@ -1,118 +1,142 @@
-var unidadeCurricular = {
-    nome: "",
-    ano: 0,
-    semestre: "",
+var lista_semestres = [];
+
+var unidadesCurriculares = {
+    "primeiro_ano": {
+        "primeiro_semestre": ["Álgebra Linear e Geometria Analítica", "Fundamentos de Programação", "Interação com o Utilizador", "Matemática I", "Sistemas Digitais"],
+        "segundo_semestre": ["Circuitos Eletrónicos", "Estruturas de Dados", "Matemática II", "Programação para a Internet I", "Tecnologias e Arquitetura de Computadores"]
+    },
+    "segundo_ano": {
+        "primeiro_semestre": ["Programação para a Internet II", "Estatistica", "Bases de Dados", "Multimédia e CG", "Programação"],
+        "segundo_semestre": ["Bases de Dados II", "Programação Aplicada", "Engenharia de Software", "Redes de Computadores I", "Sistemas Operativos"]
+    },
+    "terceiro_ano": {
+        "primeiro_semestre": ["Gestão de Projeto", "Redes de Computadores II", "Introdução á Inteligência Artificial", "Tecnologias e Aplicações Móveis", "Laboratório de Programação"],
+        "segundo_semestre": ["Sistemas de Informação", "Sistemas Distribuídos", "Gestão de Sistemas e Redes"]
+    }
 };
 
-var avaliacao = {
-    nome: "",
-};
-document.getElementById("adicionarButao").addEventListener("click", function(evt){
-    // Cria um novo objeto para a nova unidade curricular
-    let novaEntrada = {
-        nome: document.getElementById("texto_nome").value,
-        ano: document.getElementById("texto_ano").value,
-        semestre: document.getElementById("texto_semestre").value
-    };
 
-    // Adiciona a nova unidade curricular à lista
-    lista_semestres.push(novaEntrada);
+document.addEventListener("DOMContentLoaded", function() {
+    var lista_semestres = [];
 
-    // Atualiza os dados salvos
-    guardarDados();
-});
+    function abrirPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
 
-// Event listener para remover uma unidade curricular quando o botão "Remover" é clicado
-document.getElementById("removerButao").addEventListener("click", function(evt){
-    // Verifica se há alguma unidade curricular selecionada
-    let unidadesSelecionadas = document.querySelectorAll('.semestres-content a.selected');
+    function fecharPopup() {
+        document.getElementById("popup").style.display = "none";
+    }
 
-    // Se houver pelo menos uma unidade curricular selecionada
-    if (unidadesSelecionadas.length > 0) {
-        // Remove cada unidade curricular selecionada da lista
-        unidadesSelecionadas.forEach(function(unidade) {
-            let nomeUnidade = unidade.textContent.trim(); // Obtém o nome da unidade curricular
-            // Encontra o índice da unidade curricular na lista
-            let index = lista_semestres.findIndex(function(elem) {
-                return elem.nome === nomeUnidade;
-            });
+    function abrirPopupRemover() {
+        document.getElementById("popup-remover").style.display = "block";
+    }
 
-            // Se a unidade curricular estiver na lista, remova-a
-            if (index !== -1) {
-                lista_semestres.splice(index, 1);
+    function fecharPopupRemover() {
+        document.getElementById("popup-remover").style.display = "none";
+    }
+
+    document.getElementById("adicionarButao").addEventListener("click", abrirPopup);
+    document.getElementById("removerButao").addEventListener("click", abrirPopupRemover);
+    document.getElementById("cancelarAdicaoButao").addEventListener("click", fecharPopup);
+    document.getElementById("cancelarRemocaoButao").addEventListener("click", fecharPopupRemover);
+    document.getElementById("fecharPopup-remover").addEventListener("click", removerUnidadeCurricular);
+    document.getElementById("adicionarUnidadeCurricular").addEventListener("click", adicionarUnidadeCurricular);
+
+    function removerUnidadeCurricular() {
+        let nome = document.getElementById("texto_nome_remover").value.trim();
+        let ano = document.getElementById("texto_ano_remover").value.trim();
+        let semestre = document.getElementById("texto_semestre_remover").value.trim();
+    
+        if (nome && ano && semestre) {
+            if (unidadesCurriculares[ano] && unidadesCurriculares[ano][semestre]) {
+                let index = unidadesCurriculares[ano][semestre].indexOf(nome);
+                if (index !== -1) {
+                    unidadesCurriculares[ano][semestre].splice(index, 1);
+                    
+                    fecharPopupRemover();
+                    mostrarMensagem("Unidade curricular removida com sucesso.");
+                } else {
+                    mostrarMensagem("A unidade curricular especificada não foi encontrada.");
+                }
+            } else {
+                mostrarMensagem("O ano ou semestre especificado não foi encontrado.");
+            }
+        } else {
+            mostrarMensagem("Por favor, preencha todos os campos antes de remover.");
+        }
+        atualizarInterface()
+    }
+    
+    function atualizarInterface() {
+        let nome = document.getElementById("texto_nome_remover").value.trim();
+        let ano = document.getElementById("texto_ano_remover").value.trim();
+        let semestre = document.getElementById("texto_semestre_remover").value.trim();
+    
+        // Construir o seletor com base no ano e semestre
+        let selector = `.primeiroano .${semestre} a`; // Ajustado para refletir a estrutura do HTML
+        let unidadesHTML = document.querySelectorAll(selector);
+    
+        // Iterar sobre os elementos encontrados e remover aquele com o texto correspondente
+        unidadesHTML.forEach(function(element) {
+            if (element.textContent.trim() === nome) {
+                element.remove();
             }
         });
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+function adicionarUnidadeCurricular() {
+    var nome = document.getElementById("texto_nome").value;
+    var ano = document.getElementById("texto_ano").value;
+    var semestre = document.getElementById("texto_semestre").value;
 
-        // Após remover, atualiza os dados salvos
-        guardarDados();
-
-        // Exibe a mensagem de remoção bem-sucedida
-        mostrarMensagem("Unidades curriculares removidas com sucesso.");
+    if (nome && ano && semestre) {
+        var unidadeCurricular = {
+            nome: nome,
+            ano: ano,
+            semestre: semestre
+        };
+        var listaSemestres = JSON.parse(localStorage.getItem("lista_semestres")) || [];
+        listaSemestres.push(unidadeCurricular);
+        localStorage.setItem("lista_semestres", JSON.stringify(listaSemestres));
+        document.getElementById("texto_nome").value = "";
+        document.getElementById("texto_ano").value = "";
+        document.getElementById("texto_semestre").value = "";
+        mostrarMensagem("Unidade curricular adicionada com sucesso.");
     } else {
-        // Caso nenhuma unidade curricular esteja selecionada, exibe uma mensagem na tela
-        mostrarMensagem("Nenhuma unidade curricular selecionada para remover.");
+        mostrarMensagem("Por favor, preencha todos os campos antes de salvar.");
+    }
+    fecharPopup();
+
+}
+
+    function mostrarMensagem(mensagem) {
+        let mensagemElemento = document.getElementById("mensagem");
+
+        mensagemElemento.textContent = mensagem;
+
+        mensagemElemento.style.display = "block";
+
+        setTimeout(function() {
+            mensagemElemento.style.display = "none";
+        }, 3000);
+    }
+
+    function mostrarDados() {
+        lista_semestres = JSON.parse(localStorage.getItem("lista_semestres")) ?? [];
+
+        var tabela_users = document.getElementById('tabela_users');
+        tabela_users.innerHTML = "";
     }
 });
-
-// Função para salvar os dados da lista de unidades curriculares no armazenamento local
-function guardarDados(){
-    localStorage.setItem("lista_semestres", JSON.stringify(lista_semestres));
-    // Atualiza a visualização dos dados
-    mostrarDados();
-}
-
-// Função para exibir os dados da lista de unidades curriculares
-function mostrarDados(){
-    lista_semestres = JSON.parse(localStorage.getItem("lista_semestres")) ?? [];
-    
-    var tabela_users = document.getElementById('tabela_users');
-    tabela_users.innerHTML = "";
-    // Aqui você pode implementar a lógica para mostrar os dados na tabela ou em outra forma desejada
-}
-
-// Função para mostrar uma mensagem na tela
-function mostrarMensagem(mensagem) {
-    // Obtém o elemento de mensagem
-    let mensagemElemento = document.getElementById("mensagem");
-
-    // Define o texto da mensagem
-    mensagemElemento.textContent = mensagem;
-
-    // Exibe o elemento de mensagem
-    mensagemElemento.style.display = "block";
-
-    // Oculta a mensagem após alguns segundos
-    setTimeout(function() {
-        mensagemElemento.style.display = "none";
-    }, 3000); // 3000 milissegundos = 3 segundos
-}
-
-// Adiciona este código ao seu JavaScript existente
-
-// Função para abrir a pop-up
-function abrirPopup() {
-    document.getElementById("popup").style.display = "block";
-}
-
-// Função para fechar a pop-up
-function fecharPopup() {
-    document.getElementById("popup").style.display = "none";
-}
-
-// Função para adicionar uma unidade curricular
-function adicionarUnidadeCurricular() {
-    let novaEntrada = {
-        nome: document.getElementById("texto_nome").value,
-        ano: document.getElementById("texto_ano").value,
-        semestre: document.getElementById("texto_semestre").value
-    };
-
-    // Adicione o código para adicionar novaEntrada à sua lista de unidades curriculares
-
-    // Após adicionar, feche a pop-up
-    fecharPopup();
-}
-
-document.getElementById("adicionarButao").addEventListener("click", abrirPopup);
-
-document.getElementById("removerButao").addEventListener("click", fecharPopup);

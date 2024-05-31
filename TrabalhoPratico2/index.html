@@ -26,172 +26,123 @@
             <p1 class="curriculares"> Unidades Curriculares Primeiro Ano:</p1>
             <button type="button" id="adicionarButao">Adicionar</button>
             <button type="button" id="removerButao">Remover</button>
+
+
             <div id="popup" class="popup">
                 <div class="popup-content">
-                    <span class="close" onclick="fecharPopup()">&times;</span>
                     <h2>Adicionar Unidade Curricular</h2>
                     <input type="text" id="texto_nome" placeholder="Nome">
                     <input type="text" id="texto_ano" placeholder="Ano">
                     <input type="text" id="texto_semestre" placeholder="Semestre">
-                    <button onclick="adicionarUnidadeCurricular()">Salvar</button>
-                    <button onclick="fecharPopup()">Cancelar</button>
+                    <button id="adicionarUnidadeCurricular">Salvar</button>
+                    <button id="cancelarAdicaoButao">Cancelar</button>
+
                 </div>
-                <div id="popup-remover" class="popup">
-                    <div class="popup-content">
-                        <span class="close" onclick="fecharPopupRemover()">&times;</span>
-                        <h2>Remover Unidade Curricular</h2>
-                        <input type="text" id="texto_nome" placeholder="Nome">
-                        <input type="text" id="texto_ano" placeholder="Ano">
-                        <input type="text" id="texto_semestre" placeholder="Semestre">
-                        <p>Deseja remover esta unidade curricular?</p>
-                        <button onclick="confirmarRemoverUnidadeCurricular()"> Remover</button>
-                        
-                        <button onclick="fecharPopupRemover()">Cancelar</button>
-                    </div>
-                </div>
-                <div id="mensagem" class="mensagem"></div>
 
             </div>
+
+            <div id="popup-remover" class="popup-remover">
+                <div class="popup-remover-content">
+                    <h2>Remover Unidade Curricular</h2>
+                    <input type="text" id="texto_nome_remover" placeholder="Nome">
+                    <input type="text" id="texto_ano_remover" placeholder="Ano">
+                    <input type="text" id="texto_semestre_remover" placeholder="Semestre">
+                    <p>Deseja remover esta unidade curricular?</p>
+                    <button id="fecharPopup-remover">Remover</button>
+
+                    <button id="cancelarRemocaoButao">Cancelar</button>
+
+                </div>
+            </div>
+
+
+
+            <div id="mensagem" class="mensagem"></div>
+
+
 
             <div class="semestres-container">
                 <div class="primeiroano">
                     <p class="semestres">Primeiro Semestre </p>
                     <p class="semestres2">Segundo Semestre </p>
-                </div>
-                <div class="semestres-content">
-                    <div class="primeiro_semestre">
-                        <ul>
-                            <a>Álgebra Linear e Geometria Analítica
 
-
-                            </a>
-
-                            <a>Fundamentos de Programação
-
-
-                            </a>
-
-                            <a>Interação com o Utilizador
-
-                            </a>
-                            <a>Matemática I
-
-                            </a>
-                            <a>Sistemas Digitais
-
-                            </a>
-                        </ul>
-                    </div>
-                    <div class="linha_vertical"></div>
-                    <div class="segundo_semestre">
-                        <ul>
-                            <a>Circuitos Eletrónicos
-
-                            </a>
-                            <a>Estruturas de Dados
-
-                            </a>
-                            <a>Matemática II
-
-                            </a>
-                            <a>Programação para a Internet I
-
-                            </a>
-                            <a>Tecnologias e Arquitetura de Computadores
-
-                            </a>
-                        </ul>
+                    <div class="semestres-content">
+                        <div class="primeiro_semestre">
+                            <ul class="primeiro_ano">
+                                <a>Álgebra Linear e Geometria Analítica</a>
+                                <a>Fundamentos de Programação</a>
+                                <a>Interação com o Utilizador</a>
+                                <a>Matemática I</a>
+                                <a>Sistemas Digitais</a>
+                            </ul>
+                        </div>
+                        <div class="linha_vertical"></div>
+                        <div class="segundo_semestre">
+                            <ul>
+                                <a>Circuitos Eletrónicos</a>
+                                <a>Estruturas de Dados</a>
+                                <a>Matemática II</a>
+                                <a>Programação para a Internet I</a>
+                                <a>Tecnologias e Arquitetura de Computadores</a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <p1 class="curriculares"> Unidades Curriculares Segundo ano:</p1>
             <div class="semestres-container">
-                <div class="segundooano">
+                <div class="segundo_ano">
                     <p class="semestres">Primeiro Semestre </p>
                     <p class="semestres2">Segundo Semestre </p>
-                </div>
-                <div class="semestres-content">
-                    <div class="primeiro_semestre">
-                        <ul>
-                            <a>Programação para a Internet II
 
-                            </a>
-                            <a>Estatistica
-
-                            </a>
-                            <a>Bases de Dados
-
-                            </a>
-                            <a>Multimédia e CG
-
-                            </a>
-                            <a>Programação
-
-                            </a>
-                        </ul>
-                    </div>
-                    <div class="linha_vertical"></div>
-                    <div class="segundo_semestre">
-                        <ul>
-                            <a>Bases de Dados II
-
-                            </a>
-                            <a>Programação Aplicada
-
-                            </a>
-                            <a>Engenharia de Software
-
-                            </a>
-                            <a>Redes de Computadores I
-
-                            </a>
-                            <a>Sistemas Operativos
-
-                            </a>
-                        </ul>
+                    <div class="semestres-content">
+                        <div class="primeiro_semestre">
+                            <ul class = "segundo_ano">
+                                <a>Programação para a Internet II</a>
+                                <a>Estatistica</a>
+                                <a>Bases de Dados</a>
+                                <a>Multimédia e CG</a>
+                                <a>Programação</a>
+                            </ul>
+                        </div>
+                        <div class="linha_vertical"></div>
+                        <div class="segundo_semestre">
+                            <ul>
+                                <a>Bases de Dados II</a>
+                                <a>Programação Aplicada</a>
+                                <a>Engenharia de Software</a>
+                                <a>Redes de Computadores I</a>
+                                <a>Sistemas Operativos</a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
             <p1 class="curriculares"> Unidades Curriculares Terceiro ano :</p1>
             <div class="semestres-container">
-                <div class="terceirooano">
+                <div class="terceiro_ano">
                     <p class="semestres">Primeiro Semestre </p>
                     <p class="semestres2">Segundo Semestre </p>
-                </div>
-                <div class="semestres-content">
-                    <div class="primeiro_semestre">
-                        <ul>
-                            <a>Gestão de Projeto
 
-                            </a>
-                            <a>Redes de Computadores II
-
-                            </a>
-                            <a>Introdução á Inteligência Artificial
-
-                            </a>
-                            <a>Tecnologias e Aplicações Móveis
-
-                            </a>
-                            <a>Laboratório de Programação
-
-                            </a>
-                        </ul>
-                    </div>
-                    <div class="linha_vertical"></div>
-                    <div class="segundo_semestre">
-                        <ul>
-                            <a>Sistemas de Informação
-
-                            </a>
-                            <a>Sistemas Distribuídos
-
-                            </a>
-                            <a>Gestão de Sistemas e Redes
-
-                            </a>
-
-                        </ul>
+                    <div class="semestres-content">
+                        <div class="primeiro_semestre">
+                            <ul class ="terceiro_ano">
+                                <a>Gestão de Projeto</a>
+                                <a>Redes de Computadores II</a>
+                                <a>Introdução á Inteligência Artificial</a>
+                                <a>Tecnologias e Aplicações Móveis</a>
+                                <a>Laboratório de Programação</a>
+                            </ul>
+                        </div>
+                        <div class="linha_vertical"></div>
+                        <div class="segundo_semestre">
+                            <ul>
+                                <a>Sistemas de Informação</a>
+                                <a>Sistemas Distribuídos</a>
+                                <a>Gestão de Sistemas e Redes</a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
