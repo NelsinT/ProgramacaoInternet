@@ -1,88 +1,133 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: rgb(162, 160, 185);
-}
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: rgb(162, 160, 185);
+    }
 
+    #removerButao,
+    #adicionarButao{
+        display: inline;
+        margin-top: 2px;
+        margin-left: 2px;
+    
+        
+        
+    }
+    .semestres {
+        display: inline;
+        margin-left: 2%;
+    }
 
-.semestres {
-    display: inline;
-    margin-left: 2%;
-}
+    .semestres2 {
+        margin-left: 55%;
+        display: inline;
+    }
 
-.semestres2 {
-    margin-left: 55%;
-    display: inline;
-}
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background: linear-gradient(rgb(41, 41, 43), rgb(162, 160, 185));
+    }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background: linear-gradient(rgb(41, 41, 43), rgb(162, 160, 185));
-}
+    .header-content .titulo {
+        text-align: center;
+        flex: 1;
+    }
 
-.header-content .titulo {
-    text-align: center;
-    flex: 1;
-}
+    .logo-imagem {
+        width: 110px;
+        height: auto;
+    }
 
-.logo-imagem {
-    width: 110px;
-    height: auto;
-}
+    .semestres-container {
+        margin-bottom: 30px;
+    }
 
-.semestres-container {
-    margin-bottom: 30px;
-}
+    .semestres-content {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
 
-.semestres-content {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
+    .primeiro_semestre,
+    .segundo_semestre
+    {
+        flex: 1;
+    }
 
-.primeiro_semestre,
-.segundo_semestre {
-    flex: 1;
-}
+    .semestres-content a {
+        text-decoration: none;
+        color: #000;
+        display: block;
+        padding: 10px;
+        height: 30px;
+        width: 90%;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 5px 0;
+    }
 
-.semestres-content a {
-    text-decoration: none;
-    color: #000;
-    display: block;
-    padding: 10px;
-    height: 30px;
-    width: 90%;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 5px 0;
-}
+    .linha_vertical {
+        width: 2px;
+        background-color: black;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+    }
+    .curriculares{
+        font-family: "Copperplate", Fantasy;
+        font-size: 25px;
 
-.linha_vertical {
-    width: 2px;
-    background-color: black;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-}
-.curriculares{
-    font-family: "Copperplate", Fantasy;
-    font-size: 25px;
+    }
 
-}
-
-.footer {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2%;
-    background: linear-gradient(rgb(162, 160, 185), rgb(41, 41, 43));
-    color: white; 
-    text-align: center; 
-    margin: 0 auto; /* Adicionado para centralizar horizontalmente */
-}
+    .footer {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 2%;
+        background: linear-gradient(rgb(162, 160, 185), rgb(41, 41, 43));
+        color: white; 
+        text-align: center; 
+        margin: 0 auto; 
+    }
+    .popup,
+    .popup-remover {
+        display: none;
+        position: fixed; /* Definindo como fixo para cobrir toda a janela */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+        z-index: 999; /* Valor alto para aparecer acima do conteúdo existente */
+    }
+    
+    .popup-content,
+    .popup-remover-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%; /* Largura da pop-up */
+        max-width: 500px; /* Largura máxima da pop-up */
+        position: relative; /* Posicionamento relativo ao corpo */
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }

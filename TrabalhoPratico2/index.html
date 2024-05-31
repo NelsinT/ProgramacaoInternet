@@ -19,11 +19,40 @@
         </div>
     </header>
 
-    
+
 
     <nav class="opções">
         <div class="buttons-container">
             <p1 class="curriculares"> Unidades Curriculares Primeiro Ano:</p1>
+            <button type="button" id="adicionarButao">Adicionar</button>
+            <button type="button" id="removerButao">Remover</button>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="fecharPopup()">&times;</span>
+                    <h2>Adicionar Unidade Curricular</h2>
+                    <input type="text" id="texto_nome" placeholder="Nome">
+                    <input type="text" id="texto_ano" placeholder="Ano">
+                    <input type="text" id="texto_semestre" placeholder="Semestre">
+                    <button onclick="adicionarUnidadeCurricular()">Salvar</button>
+                    <button onclick="fecharPopup()">Cancelar</button>
+                </div>
+                <div id="popup-remover" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="fecharPopupRemover()">&times;</span>
+                        <h2>Remover Unidade Curricular</h2>
+                        <input type="text" id="texto_nome" placeholder="Nome">
+                        <input type="text" id="texto_ano" placeholder="Ano">
+                        <input type="text" id="texto_semestre" placeholder="Semestre">
+                        <p>Deseja remover esta unidade curricular?</p>
+                        <button onclick="confirmarRemoverUnidadeCurricular()"> Remover</button>
+                        
+                        <button onclick="fecharPopupRemover()">Cancelar</button>
+                    </div>
+                </div>
+                <div id="mensagem" class="mensagem"></div>
+
+            </div>
+
             <div class="semestres-container">
                 <div class="primeiroano">
                     <p class="semestres">Primeiro Semestre </p>
@@ -32,26 +61,50 @@
                 <div class="semestres-content">
                     <div class="primeiro_semestre">
                         <ul>
-                            <a href="contactos.html">Álgebra Linear e Geometria Analítica</a>
-                            <a href="obras.html">Fundamentos de Programação</a>
-                            <a href="obras.html">Interação com o Utilizador</a>
-                            <a href="obras.html">Matemática I</a>
-                            <a href="obras.html">Sistemas Digitais</a>
+                            <a>Álgebra Linear e Geometria Analítica
+
+
+                            </a>
+
+                            <a>Fundamentos de Programação
+
+
+                            </a>
+
+                            <a>Interação com o Utilizador
+
+                            </a>
+                            <a>Matemática I
+
+                            </a>
+                            <a>Sistemas Digitais
+
+                            </a>
                         </ul>
                     </div>
                     <div class="linha_vertical"></div>
                     <div class="segundo_semestre">
                         <ul>
-                            <a href="contactos.html">Circuitos Eletrónicos</a>
-                            <a href="obras.html">Estruturas de Dados</a>
-                            <a href="obras.html">Matemática II</a>
-                            <a href="obras.html">Programação para a Internet I</a>
-                            <a href="obras.html">Tecnologias e Arquitetura de Computadores</a>
+                            <a>Circuitos Eletrónicos
+
+                            </a>
+                            <a>Estruturas de Dados
+
+                            </a>
+                            <a>Matemática II
+
+                            </a>
+                            <a>Programação para a Internet I
+
+                            </a>
+                            <a>Tecnologias e Arquitetura de Computadores
+
+                            </a>
                         </ul>
                     </div>
                 </div>
             </div>
-           <p1 class="curriculares"> Unidades Curriculares Segundo ano:</p1>
+            <p1 class="curriculares"> Unidades Curriculares Segundo ano:</p1>
             <div class="semestres-container">
                 <div class="segundooano">
                     <p class="semestres">Primeiro Semestre </p>
@@ -60,21 +113,41 @@
                 <div class="semestres-content">
                     <div class="primeiro_semestre">
                         <ul>
-                            <a href="contactos.html">Programação para a Internet II</a>
-                            <a href="obras.html">Estatistica</a>
-                            <a href="obras.html">Bases de Dados</a>
-                            <a href="obras.html">Multimédia e CG</a>
-                            <a href="obras.html">Programação</a>
-                        </ul>   
+                            <a>Programação para a Internet II
+
+                            </a>
+                            <a>Estatistica
+
+                            </a>
+                            <a>Bases de Dados
+
+                            </a>
+                            <a>Multimédia e CG
+
+                            </a>
+                            <a>Programação
+
+                            </a>
+                        </ul>
                     </div>
                     <div class="linha_vertical"></div>
                     <div class="segundo_semestre">
                         <ul>
-                            <a href="contactos.html">Bases de Dados II</a>
-                            <a href="obras.html">Programação Aplicada</a>
-                            <a href="obras.html">Engenharia de Software</a>
-                            <a href="obras.html">Redes de Computadores I</a>
-                            <a href="obras.html">Sistemas Operativos </a>
+                            <a>Bases de Dados II
+
+                            </a>
+                            <a>Programação Aplicada
+
+                            </a>
+                            <a>Engenharia de Software
+
+                            </a>
+                            <a>Redes de Computadores I
+
+                            </a>
+                            <a>Sistemas Operativos
+
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -88,30 +161,47 @@
                 <div class="semestres-content">
                     <div class="primeiro_semestre">
                         <ul>
-                            <a href="contactos.html">Gestão de Projeto</a>
-                            <a href="obras.html">Redes de Computadores II</a>
-                            <a href="obras.html">Introdução á Inteligência Artificial</a>
-                            <a href="obras.html">Tecnologias e Aplicações Móveis</a>
-                            <a href="obras.html">Laboratório de Programação</a>
+                            <a>Gestão de Projeto
+
+                            </a>
+                            <a>Redes de Computadores II
+
+                            </a>
+                            <a>Introdução á Inteligência Artificial
+
+                            </a>
+                            <a>Tecnologias e Aplicações Móveis
+
+                            </a>
+                            <a>Laboratório de Programação
+
+                            </a>
                         </ul>
                     </div>
                     <div class="linha_vertical"></div>
                     <div class="segundo_semestre">
                         <ul>
-                            <a href="contactos.html">Sistemas de Informação</a>
-                            <a href="obras.html">Sistemas Distribuídos</a>
-                            <a href="obras.html">Gestão de Sistemas e Redes</a>
+                            <a>Sistemas de Informação
+
+                            </a>
+                            <a>Sistemas Distribuídos
+
+                            </a>
+                            <a>Gestão de Sistemas e Redes
+
+                            </a>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-    
+
     <footer class="footer">
-    Copyright © 2024 Nelson • Todos os direitos reservados.
+        Copyright © 2024 Nelson • Todos os direitos reservados.
     </footer>
-    
+    <script src="sistemas.js"></script>
 </body>
 
 </html>
