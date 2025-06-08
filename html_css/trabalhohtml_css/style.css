@@ -1,0 +1,120 @@
+body{
+    background-color: antiquewhite;
+    font-family: Arial;
+
+}
+.titulo{
+    text-align: center;
+    display: block;
+}
+.geral {
+    padding: 2em;
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+}
+
+h2 {
+    color: #007BFF;
+}
+
+.imagens {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.fontes {
+    font-size: 0.9em;
+    color: #555;
+}
+
+table , td {
+    border: 1px solid black;
+}
+.centrarimagem{
+  display: block;
+  margin: 0 auto;
+}
+.centrarimagem:hover {
+  filter: brightness(85%);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+  cursor: pointer;
+}
+.footer{
+  display: block;
+  text-align: center;
+  margin-top: 5%;
+}
+.fonteinvisivel{
+    display: none;
+}
+@media (max-width: 599px) {
+  .geral {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .titulo {
+    font-size: 24px;
+    padding: 0 8px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+
+  p, .fontes {
+    font-size: 16px;
+    padding: 0 8px;
+  }
+
+  table, td {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+
+  table caption {
+    font-weight: bold;
+    font-size: 19px;
+    padding: 8px 0;
+  }
+
+  img.centrarimagem,
+  iframe.centrarimagem {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Quando passo para telemóvel removo isto pois aparece muito grande e polui bastante o site. */
+  iframe[src="https://www.fogos.pt"] {
+    display: none;
+  }
+    /*Esta fonte so aparece no computador*/
+
+    iframe[src="https://www.youtube.com/embed/zX85vaj-b9Q?si=kFqLr1uw7kbFmgS-"] {
+    display: none;
+  }
+  /*Esta fonte so aparece no telemovel*/
+   .fonteinvisivel{
+    display:block;
+    }
+  
+
+  /* Botão para voltar adaptado para ser mais fácil de clicar */
+  .back-to-top {
+    display: inline-block;
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 16px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+}
